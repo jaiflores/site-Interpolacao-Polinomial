@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}  {% endblock %}</title>
+    <style>
+        :root{
+            --bg1: whitesmoke;
+            --bg2: rgb(129, 169, 255);
+            --bg3: rgb(255, 133, 131);
+            --bg4: rgb(247, 220, 114);
+            --bg5: rgb(7, 241, 163);
+            --colr1: white;
+            --colr2: black;
+            --colr3: rgba(0, 28,89, 1.00);
+            --colr4: rgba(239,59,57,1.00);
+            --radius: 0.5em;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-width: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <div>
+                    <h3>Interpolação polinomial</h3>
+                </div>
+                <div>
+                    <ul>
+                        <li><input type="submit" value="Login"></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="#">Lista de Estudo</a></li>
+                        <li><a href="#">Adicionar Estudo</a></li>
+                        <li><a href="#">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        {% block inicial %}
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <div>
+            <p>Copyright © 2022 Dornelles. All rights reserved.</p>
+            <nav>
+                <ul>
+                <li><a href="#">Home |</a></li>
+                <li><a href="#">Login |</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+
+                {% if user.is_authenticated %}
+                <li><a href="#">| Logout</a></li>
+                {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
